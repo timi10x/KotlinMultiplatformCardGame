@@ -1,0 +1,23 @@
+CREATE TABLE GameSettingsTable(
+    id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    startCardCount INTEGER NOT NULL DEFAULT 5,
+    isSinglePlayer INTEGER NOT NULL DEFAULT 1,
+    isSoundEnabled INTEGER NOT NULL DEFAULT 1
+);
+
+selectAll:
+SELECT *
+FROM GameSettingsTable;
+
+insertOrReplace:
+INSERT OR REPLACE INTO GameSettingsTable(
+    id,
+    startCardCount,
+    isSinglePlayer,
+    isSoundEnabled
+)
+VALUES (?, ?, ?, ?);
+
+deleteAll:
+DELETE
+FROM GameSettingsTable;
